@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "make_set_int_test",
+			"command": "make",
+			"args": [
+				"set_int_test"
+			]
+		}
+	]
+}
