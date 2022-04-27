@@ -2,22 +2,37 @@
 
 #include "set_int.h"
 
+struct _node {
+    int value;
+    struct _node *next;
+};
+
+typedef struct _node node;
+
 struct _set_int {
+    node *first;
 };
 
 set_int *set_int_new() {
     set_int *s = malloc(sizeof(set_int));
+    s->first = NULL;
     return s;
 }
 
 void set_int_delete(set_int **_s) {
     set_int *s = *_s;
+    node *n = s->first;
+    while (n != NULL) {
+        node *next = n->next;
+        free(n);
+        n = next;
+    }
     free(s);
     *_s = NULL;
 }
 
 int set_int_empty(set_int *s) {
-    return 0;
+    return s->first == NULL;
 }
 
 int set_int_has(set_int *s, int value) {
