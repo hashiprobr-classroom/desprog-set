@@ -36,11 +36,44 @@ int set_int_empty(set_int *s) {
 }
 
 int set_int_has(set_int *s, int value) {
+    for (node *n = s->first; n != NULL; n = n->next) {
+        if (n->value == value) {
+            return 1;
+        }
+    }
     return 0;
 }
 
 void set_int_insert(set_int *s, int value) {
+    node *n;
+    for (n = s->first; n != NULL; n = n->next) {
+        if (value == n->value) {
+            return;
+        }
+    }
+    n = malloc(sizeof(node));
+    n->value = value;
+    n->next = s->first;
+    s->first = n;
 }
 
 void set_int_remove(set_int *s, int value) {
+    node *p = NULL;
+    node *n = s->first;
+    while (n != NULL) {
+        if (value == n->value) {
+            break;
+        }
+        p = n;
+        n = n->next;
+    }
+    if (n == NULL) {
+        return;
+    }
+    if (p != NULL) {
+        p->next = n->next;
+    } else {
+        s->first = n->next;
+    }
+    free(n);
 }
