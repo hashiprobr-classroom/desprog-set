@@ -11,5 +11,6 @@ int set_int_empty(set_int *s);
 int set_int_has(set_int *s, int value);
 void set_int_insert(set_int *s, int value);
 void set_int_remove(set_int *s, int value);
+int is_balanced(set_int *s);
 
 #endif

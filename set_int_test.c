@@ -60,6 +60,11 @@ void test(char o[], int v[], int s[], int m, char msg[]) {
                     break;
                 }
             }
+
+            if (!is_balanced(q)) {
+                sprintf(msg, "IS NOT BALANCED");
+                break;
+            }
         }
 
         int last = l;
