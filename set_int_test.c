@@ -37,7 +37,7 @@ void test(char o[], int v[], int s[], int m, char msg[]) {
             }
         }
 
-        set_int *q = set_int_new();
+        set_int *q = set_int_new(16, 0.75);
 
         j = 0;
         k = 0;
